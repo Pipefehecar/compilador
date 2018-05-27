@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--para la barra-->
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    {% load staticfiles %}
+    <link rel="icon" href="{% static 'imgs/cIcon.png' %}">
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap/bootstrap-grid.css' %}" type="text/css">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap/bootstrap-reboot.css' %}" type="text/css">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap/bootstrap-theme.min.css' %}" type="text/css">
+    <link rel="stylesheet"  href="{% static 'css/bootstrap/bootstrap.min.css' %}" type="text/css">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}" ></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}" ></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	{% block content %}
+	
+	{% endblock %}
+
+  {% block ajaxfuncion %}
+
+  
+  {% endblock %}
+
+</body>
+</html>
