@@ -164,9 +164,9 @@ USE_TZ = True
 AUTHENTICATION_BACKENDS = (
     # 'social.backends.facebook.FacebookAppOAuth2',
     # 'social.backends.facebook.FacebookOAuth2',
-    'social.backends.facebook.google.GoogleOpenId',
-    'social.backends.facebook.google.GoogleOAuth2',
-    'social.backends.facebook.googleGoogleOAuth',
+    # 'social.backends.facebook.google.GoogleOpenId',
+    # 'social.backends.facebook.google.GoogleOAuth2',
+    # 'social.backends.facebook.googleGoogleOAuth',
     'django.contrib.auth.backends.ModelBackend',
     )
 
@@ -189,8 +189,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 #Google
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '313768165072-a7af6m5l6r23p18g823k0g0o7qus8u6t.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uzgMoCw3g0UBoGC4glzNKhCF'
 
 
 #facebook
@@ -199,5 +199,11 @@ STATICFILES_DIRS = [
 
 # LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('usuario:home') # aqui redireccionamos a la url del compilador
-# LOGOUT_URL = reverse_lazy('logout')
+LOGOUT_URL = reverse_lazy('logout')
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'luisfehecar14@gmail.com'
+EMAIL_HOST_PASSWORD = '108303320655'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -15,19 +15,33 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib.auth.views import login
+# from django.contrib.auth.views import login
+
+from django.contrib.auth.views import login,logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 admin.autodiscover()
 
 urlpatterns = [
+    #admin
     url(r'^admin/', admin.site.urls),
 
-    
-
      #PYTHON SOCIAL AUTH
-    url('',include('social.apps.django_app.urls', namespace= 'social'  )),
+    #url(r'',include('social.apps.django_app.urls', namespace= 'social'  )),
+
+    #django_social    
+    url(r'^account/',include('social_django.urls', namespace= 'social'  )),    
+    url(r'^account/',include('django.contrib.auth.urls', namespace= 'auth')),    
+
 
     url(r'^usuario/',include('apps.login.urls', namespace='usuario')),
 
     #login
-    url(r'^', login, {'template_name':'login/index.html'}, name='login'),
+    url(r'^login', login, {'template_name':'login/index.html'}, name='login'),
+    #logout
+    url(r'^logout', logout, {'template_name':'login/index.html'}, name='logout'),
+
+    #reestablecimiento de contrasenia
+    url(r'^reset/password_reset', password_reset, {'template_name':'registration/password_reset_form.html','email_template_name':'registration/password_reset_email.html'}, name='password_reset'),
+    url(r'^reset/password_reset_done', password_reset_done, {'template_name':'registration/password_reset_done.html'}, name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', password_reset_confirm,{'template_name':'registration/password_reset_confirm.html'},name ='password_reset_confirm'),
+    url(r'^reset/done$', password_reset_complete,{'template_name':'registration/password_reset_complete.html'},name ='password_reset_complete'),
 ]

@@ -21,9 +21,9 @@ from forms import RegistroForm
 #  	form_class = RegistroForm 
 #  	success_url = reverse_lazy('')
 #  	#fields = '__all__'
+from django.template import RequestContext
 
-
-from django.shortcuts import render,redirect
+from django.shortcuts import render, render_to_response,redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -81,12 +81,12 @@ def registrarse(request):
 			user.first_name = first_name.title()
 			user.save()
 
-			usuario = usuario(edad = edad, ciudad = ciudad.title(), pais = pais.title(), 
-			lenguaje = lenguaje.title(), usuario_id = user.id)
-			usuario.save()
+			# us = usuario(edad = edad, ciudad = ciudad.title(), pais = pais.title(), 
+			# lenguaje = lenguaje.title(), usuario_id = user.id)
+			# us.save()
 
 	return render(request,'login/registrarUsuario.html',{"respuesta":answer}) 
-
+	# return render_to_response("login/registrarUsuario.html",RequestContext(request,{"respuesta":answer})) 
 
 def home(request):
 	return render(request,'login/compilador.html')
